@@ -1,2 +1,6 @@
 # Yaftp_client
-YET ANOTHER FTP CLIENT
+Ещё один ftp клиент.
+# Устоновка
+Скачать и запустить через команду
+python3 main.py
+
