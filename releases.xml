@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <releases>
-    <release version="0.1">
+    <release version="0.1" date="xx.02.21">
         <description>
             Главная рабочая версия
         </description>
@@ -11,15 +11,12 @@
             main.py
         </updated>
     </release>
-    <release version="0.1.5">
+    <release version="0.1.5" date="xx.02.21">
         <description>
             Улудшенна работа прогграмы а именно:
             1)Добавленны флаги
             2)Теперь ftp клиентом хоть как то можно пользоваться(Исправленно куча ошибок)
         </description>
-        <date>
-            xx.02.21
-        </date>
         <updated>
             main.py
         </updated>
