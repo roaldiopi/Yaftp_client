@@ -1,6 +1,6 @@
 {
 "updates": {
-    "stable" : "0.1.5"
-    "unstable" : "0.1"
+    "current" : "0.1.5"
+    "past" : "0.1"
   }
 }
