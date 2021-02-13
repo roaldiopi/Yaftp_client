@@ -15,8 +15,8 @@
             1)Добавленны флаги
             2)Теперь ftp клиентом хоть как то можно пользоваться(Исправленно куча ошибок)
         </description>
-        <updated>
+        <update>
             ['releases.xml']
-        </updated>
+        </update>
     </release>
 </releases>
