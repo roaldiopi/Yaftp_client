@@ -7,7 +7,7 @@
             11.02.21
         </date>
         <update>
-            ['main.py']
+            <files>['main.py']</files>
         </update>
     </release>
     <release version="0.1.5" date="xx.02.21">
@@ -17,7 +17,7 @@
         </description>
         <update>
             <create_directory>['etc']</create_directory>
-            <file>['releases.xml','123.txt']</file>
+            <files>['releases.xml','123.txt']</files>
         </update>
     </release>
 </releases>
