@@ -3,9 +3,6 @@
     <current>0.1.5</current>
     <release version="0.1" date="xx.02.21">
         <description>Главная рабочая версия</description>
-        <date>
-            11.02.21
-        </date>
         <update>
             <files>['main.py']</files>
         </update>
