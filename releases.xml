@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <releases>
-    <current>0.1.5</current>
+    <current>0.2</current>
     <release version="0.1" date="1.02.21">
         <description>Главная рабочая версия</description>
         <update>
