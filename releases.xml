@@ -16,7 +16,7 @@
             2)Теперь ftp клиентом хоть как то можно пользоваться(Исправленно куча ошибок)
         </description>
         <update>
-            ['releases.xml']
+            ['releases.xml','etc/123.txt']
         </update>
     </release>
 </releases>
