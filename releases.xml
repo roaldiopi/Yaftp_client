@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <releases>
     <current>0.1.5</current>
-    <release version="0.1" date="xx.02.21">
+    <release version="0.1" date="1.02.21">
         <description>Главная рабочая версия</description>
         <update>
-            <files>['main.py']</files>
+            <files>['main.py','releases.xml']</files>
         </update>
     </release>
-    <release version="0.1.5" date="xx.02.21">
-        <description>Улудшенна работа прогграмы а именно:
-            1)Добавленны флаги
-            2)Теперь ftp клиентом хоть как то можно пользоваться(Исправленно куча ошибок)
-        </description>
+    <release version="0.1.5" date="12.02.21">
+        <description>Улудшенна работа прогграммы</description>
         <update>
-            <create_directory>['etc']</create_directory>
-            <files>['releases.xml','etc/123.txt']</files>
+            <files>['main.py','releases.xml']</files>
+        </update>
+    </release>
+    <release version="0.2" date="14.02.21">
+        <description>Добавленна система обновленний,добавленны флаги</description>
+        <update>
+            <files>['main.py','lib.py','releases.xml']</files>
         </update>
     </release>
 </releases>
