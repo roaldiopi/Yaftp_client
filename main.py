@@ -1,6 +1,7 @@
 import sys
 import signal
-from lib import Update
+from lib import Update, search_in_array_json
+from bs4 import BeautifulSoup
 from socket import gaierror
 from ftplib import FTP, error_perm, error_reply, error_temp
 
@@ -9,6 +10,8 @@ ftp = FTP()
 update = Update("Yaftp_client", "roaldiopi")
 update.get_update()
 updates = update.get_json()
+
+
 def ftp_command(ftp_cmd):
     split_cmd = ftp_cmd.split()
     if split_cmd[0] == "ls" or split_cmd[0] == "LS":
@@ -51,20 +54,61 @@ def ftp_command(ftp_cmd):
 
 
 if len(sys.argv) > 1:
-    if "--get_last_update":
+    f = open("releases.xml", "r")
+    bs = BeautifulSoup(f.read(), "lxml")
+    version = bs.current.text
+    f.close()
+    if "--get_all_updates" in sys.argv:
+        print("Обновляемся")
+        i = search_in_array_json(updates, "version", version)
+        releases = update.get_json(i)
+        if version != updates[-1]['version']:
+            updates.pop(0)
+            for index in range(len(updates)):
+                exec(f"""import os
+if {updates[index]['dirs']} != None:
+    for dir in {updates[index]['dirs']}:
+        os.mkdir(dir)
+for file in {updates[index]['files']}:
+    r = requests.get("https://raw.githubusercontent.com/roaldiopi/Yaftp_client/{updates[index]['commit']}/" + file)
+    file_content = r.content
+    f = open(file,'w')
+    f.write(file_content.decode())
+    f.close()""")
+        sys.exit(0)
+    if "--observe_all_updates" in sys.argv:
+        for element in updates:
+            print(f"""Версия:{element['version']}
+Дата обновления:{element['date']}
+Описание:{element['description']}
+-----------------------------""")
+        exit()
+    if "-v" in sys.argv or "--version" in sys.argv:
+        print(version)
+        sys.exit(0)
+    if "-h" in sys.argv or "--help" in sys.argv:
+        print("""Доступные флаги:
+1)---observe_all_updates(Выводит все обновления)
+2)--observe_last_update(Выводит последнее обновления)
+3)--get_all_updates(Обновиться до самой новой версии)
+4)--port или -p(Для указания порта)
+5)--account или -a(Для указания данных для входа)
+Пример:
+ftp адресс -p 21 -a anonymous anonymous""")
+        sys.exit(0)
+    if "--observe_last_update" in sys.argv:
         print(f"""Версия:{updates[-1]['version']}
 Дата обновления:{updates[-1]['date']}
-Описание:{updates[-1]['description']}
-""")
-        exit(0)
-    if "-p" in sys.argv:
+Описание:{updates[-1]['description']}""")
+        sys.exit(0)
+    if "-p" in sys.argv or "--port" in sys.argv:
         i = sys.argv.index("-p")
         port = sys.argv[i+1]
     else:
         port = 21
     ftp.connect(sys.argv[1], int(port))
     print(ftp.getwelcome())
-    if "--account" in sys.argv:
+    if "--account" in sys.argv or "-a" in sys.argv:
         i = sys.argv.index("--account")
         login = sys.argv[i+1]
         password = sys.argv[i+2]

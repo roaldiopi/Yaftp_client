@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<releases>
+    <current>0.2</current>
+    <release version="0.1" date="1.02.21">
+        <description>Главная рабочая версия</description>
+        <update>
+            <files>['main.py','releases.xml']</files>
+            <commit>4549977100b26908dfbf3203ea96e97ca151c636</commit>
+        </update>
+    </release>
+    <release version="0.1.5" date="12.02.21">
+        <description>Улудшенна работа прогграммы</description>
+        <update>
+            <files>['main.py','releases.xml']</files>
+            <commit>8a838dd0a05553754dcbf1291524f7b59a3f6209</commit>
+        </update>
+    </release>
+    <release version="0.2" date="14.02.21">
+        <description>Добавленна система обновленний,добавленны флаги</description>
+        <update>
+            <files>['main.py','lib.py','releases.xml']</files>
+            <commit>f06fef87deda2ce2f722070a7098b86e7cc0746e</commit>
+        </update>
+    </release>
+</releases>
