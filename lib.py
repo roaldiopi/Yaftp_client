@@ -4,6 +4,7 @@ import random
 import string
 import time
 
+
 class Color:
     """
     Класс с цветами
@@ -51,17 +52,20 @@ def generate_string(length):
 class Update:
     """
     Класс обновления прогграмы на входе берёт названия репозитория,имя пользователя,
-    также можно указать ветвь(по умолчанию ветвь=main).
+    также можно указать ветвь(по умолчанию ветвь=main) и сайт.
     """
-
-    def __init__(self, repository, user, branch="main"):
+    def __init__(self, repository, user, site=None, branch="main"):
         self.rp = repository
-        self.username = user
-        self.url = f"https://raw.githubusercontent.com/{self.username}/{self.rp}/{branch}/"
-        self.xml = requests.get(self.url + "releases.xml")
+        if site is None:
+            self.username = user
+            self.url = f"https://raw.githubusercontent.com/{self.username}/{self.rp}/{branch}/"
+            self.xml = requests.get(self.url + "releases.xml")
+        else:
+            self.url = site
+            self.xml = requests.get(site + "releases.xml")
         self.response = self.xml.content
 
-    def get_json(self):
+    def get_json(self, delete=-1):
         """
         Этот метод класс Update выдаёт json с обнолвениями.
         """
@@ -74,13 +78,22 @@ class Update:
             else:
                 dirs = "None"
             files = release.update.files.text
+            exists_commit = release.update.find("commit")
+            if exists_commit is not None:
+                commit = release.update.commit.text
+            else:
+                commit = "None"
             releases.append({
                 "version": release['version'],
                 "date": release['date'],
                 "description": release.description.text,
                 "dirs": dirs,
-                "files": files
+                "files": files,
+                "commit": commit
             })
+        if delete != -1:
+            for i in range(delete):
+                releases.pop(0)
         return releases
 
     def get_update(self):
@@ -90,25 +103,34 @@ class Update:
         Возращает True если прогграма обновилась,False если нет обновлений
         """
         release = self.get_json()
-        f = open("releases.xml", "r")
-        bs = BeautifulSoup(f.read(), "lxml")
-        version = bs.current.text
-        f.close()
-        if version != release[-1]['version']:
-            exec(f"""import os
-if {release[-1]['dirs']} != None:
-    for dir in {release[-1]['dirs']}:
-        os.mkdir(dir)
-for file in {release[-1]['files']}:
-    r = requests.get(self.url + file)
-    file_content = r.content
-    f = open(file,'w')
-    f.write(file_content.decode())
-    f.close
-""")
-            print(f"Версия прогграмы обновленна до {release[-1]['version']}")
-            return True
-        else:
+        try:
+            f = open("releases.xml", "r")
+            bs = BeautifulSoup(f.read(), "lxml")
+            version = bs.current.text
+            f.close()
+            if version != release[-1]['version']:
+                exec(f"""import os
+            if {release[-1]['dirs']} != None:
+                for dir in {release[-1]['dirs']}:
+                    os.mkdir(dir)
+            for file in {release[-1]['files']}:
+                r = requests.get(self.url + file)
+                file_content = r.content
+                f = open(file,'w')
+                f.write(file_content.decode())
+                f.close()
+            """)
+                print(f"Версия прогграмы обновленна до {release[-1]['version']}")
+                return True
+            else:
+                return False
+        except FileNotFoundError:
+            print("releases.xml не найден!\nСкачиваем releases.xml")
+            rq = requests.get(self.url + "releases.xml")
+            xml_content = rq.content
+            releases_file = open("releases.xml", 'w')
+            releases_file.write(xml_content.decode())
+            releases_file.close()
             return False
 
 
@@ -152,9 +174,14 @@ def binary_search(array, item):
 
 
 def search(arr, key):
-    for i in range(len(arr)):
-        print(i)
+    for i in arr:
         if i == key:
             return i
     return None
 
+
+def search_in_array_json(arr, index, key):
+    for el in arr:
+        if el[index] == key:
+            return arr.index(el)
+    return None
