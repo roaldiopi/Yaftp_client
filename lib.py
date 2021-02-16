@@ -180,8 +180,8 @@ def search(arr, key):
     return None
 
 
-def search_in_array_json(arr, index, key):
+def search_in_array_json(arr, index, value):
     for el in arr:
-        if el[index] == key:
+        if el[index] == value:
             return arr.index(el)
     return None
