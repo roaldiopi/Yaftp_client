@@ -20,6 +20,12 @@
                 <files>['main.py','lib.py','releases.xml']</files>
             </update>
         </release>
+        <release version="0.3" date="14.02.21">
+            <description>123</description>
+            <update>
+                <files>['releases.xml']</files>
+            </update>
+        </release>
     </releases>
     <directory>[['.',
   [('releases.xml', 836),
