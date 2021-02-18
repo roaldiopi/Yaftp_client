@@ -33,6 +33,6 @@
    ('main.py', 12109),
    ('main.spec', 892),
    ('updatelib.py', 4902)]],
-    ['etc']
+    ['etc',['test.txt']]
   ]</directory>
 </program>
