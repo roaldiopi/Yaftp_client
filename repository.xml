@@ -22,9 +22,9 @@
         </release>
     </releases>
     <directory>[['.',
-  [('releases.xml', 836),
+  [('repository.xml', 1086),
    ('lib.py', 2801),
-   ('main.py', 12109)]],
-    ['etc',[('test.txt',4)]]
-  ]</directory>
+   ('main.py', 12111),
+   ('updatelib.py', 6769)]],
+ ['./etc', [('test.txt', 4)]]]</directory>
 </program>
