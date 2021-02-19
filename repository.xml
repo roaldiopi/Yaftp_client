@@ -24,9 +24,7 @@
     <directory>[['.',
   [('releases.xml', 836),
    ('lib.py', 2801),
-   ('main.py', 12109),
-   ('main.spec', 892),
-   ('updatelib.py', 4902)]],
+   ('main.py', 12109)]],
     ['etc',[('test.txt',4)]]
   ]</directory>
 </program>
