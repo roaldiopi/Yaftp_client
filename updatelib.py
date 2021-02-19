@@ -168,3 +168,4 @@ for local,destination in zip_longest({elements},{directory}):
 if __name__ == '__main__':
     update = Update("Yaftp_client", "roaldiopi")
     update.smart_update()
+    print(123)
