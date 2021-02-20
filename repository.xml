@@ -31,6 +31,14 @@
                 </files>
             </update>
         </release>
+        <release version="0.3" date="20.02.21">
+            <description>Добавленна система обновленний,добавленны флаги</description>
+            <update>
+                <files>
+                    <file>releases.xml</file>
+                </files>
+            </update>
+        </release>
     </releases>
    <directories>
         <directory path=".">
