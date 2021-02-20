@@ -4,6 +4,7 @@
         <current>0.2</current>
         <release version="0.1" date="1.02.21">
             <description>Главная рабочая версия</description>
+            <create_directory>123</create_directory>
             <update>
                 <files>
                     <file>main.py</file>
