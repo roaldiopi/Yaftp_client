@@ -5,28 +5,38 @@
         <release version="0.1" date="1.02.21">
             <description>Главная рабочая версия</description>
             <update>
-                <files>['main.py','releases.xml']</files>
+                <files>
+                    <file>main.py</file>
+                    <file>releases.xml</file>
+                </files>
             </update>
         </release>
         <release version="0.1.5" date="12.02.21">
             <description>Улудшенна работа прогграммы</description>
             <update>
-                <files>['main.py','releases.xml']</files>
+                <files>
+                    <file>main.py</file>
+                    <file>releases.xml</file>
+                </files>
             </update>
         </release>parser
         <release version="0.2" date="14.02.21">
             <description>Добавленна система обновленний,добавленны флаги</description>
             <update>
-                <files>['main.py','lib.py','releases.xml']</files>
+                <<files>
+                    <file>main.py</file>
+                    <file>releases.xml</file>
+                    <file>lib.py</file>
+                </files>
             </update>
         </release>
     </releases>
    <directories>
         <directory path=".">
-            <file size="1086">repository.xml</file>
-            <file size="2801">lib.py</file>
+            <file size="1588">repository.xml</file>
+            <file size="4245">lib.py</file>
             <file size="12111">main.py</file>
-            <file size="7757">updatelib.py</file>
+            <file size="6875">updatelib.py</file>
         </directory>
         <directory path="./etc">
             <file size="4">test.txt</file>
