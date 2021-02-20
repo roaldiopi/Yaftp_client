@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<program>
+<repository>
+    <directories>
+        <directory path=".">
+            <file size="1588">repository.xml</file>
+            <file size="4245">lib.py</file>
+            <file size="12111">main.py</file>
+            <file size="6875">updatelib.py</file>
+        </directory>
+        <directory path="./etc">
+            <file size="4">test.txt</file>
+        </directory>
+    </directories>
     <releases>
         <current>0.3</current>
         <release version="0.1" date="1.02.21">
@@ -40,15 +51,4 @@
             </update>
         </release>
     </releases>
-   <directories>
-        <directory path=".">
-            <file size="1588">repository.xml</file>
-            <file size="4245">lib.py</file>
-            <file size="12111">main.py</file>
-            <file size="6875">updatelib.py</file>
-        </directory>
-        <directory path="./etc">
-            <file size="4">test.txt</file>
-        </directory>
-    </directories>
-</program>
+</repository>
