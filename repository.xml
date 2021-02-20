@@ -21,10 +21,15 @@
             </update>
         </release>
     </releases>
-    <directory>[['.',
-  [('repository.xml', 1086),
-   ('lib.py', 2801),
-   ('main.py', 12111),
-   ('updatelib.py', 7757)]],
- ['./etc', [('test.txt', 4)]]]</directory>
+   <directories>
+        <directory path=".">
+            <file size="1086">repository.xml</file>
+            <file size="2801">lib.py</file>
+            <file size="12111">main.py</file>
+            <file size="7757">updatelib.py</file>
+        </directory>
+        <directory path="./etc">
+            <file size="4">test.txt</file>
+        </directory>
+    </directories>
 </program>
