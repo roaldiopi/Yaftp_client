@@ -4,8 +4,8 @@
         <current>0.2</current>
         <release version="0.1" date="1.02.21">
             <description>Главная рабочая версия</description>
-            <create directory="etc;src"/>
             <update>
+                <create directory="etc;src"/>
                 <files>
                     <file>main.py</file>
                     <file>releases.xml</file>
